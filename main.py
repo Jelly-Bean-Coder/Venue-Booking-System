@@ -63,6 +63,7 @@ while True:
     booked = len(db.fetchall()) > 0
     if booked:
         print("This time is already booked. Please choose another time.")
+        continue
     elif not booked:
         db.execute(f"""INSERT INTO venue(name, guests, time, date) VALUES(?, ?, ?, ?)""", (name, guests, time, date))
         db_conn.commit()
